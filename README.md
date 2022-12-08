@@ -1,1 +1,1 @@
-# My-Workout-Planner
+# My Workout Planner
