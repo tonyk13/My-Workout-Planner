@@ -1,21 +1,28 @@
 import React, { useRef, useEffect } from 'react';
 import { Animated, Pressable, StyleSheet, Text, SafeAreaView } from 'react-native';
+import { useIsFocused } from "@react-navigation/native";
 
 const HomeScreen = props => {
+    const fadeAnim = useRef(new Animated.Value(0)).current;  // Initial value for opacity: 0
+    console.log("faded");
+
     const FadeInView = (props) => {
-        const fadeAnim = useRef(new Animated.Value(0)).current;  // Initial value for opacity: 0
-    
+        const isFocused = useIsFocused();
+
         useEffect(() => {
-            Animated.timing(
-                fadeAnim,
-                {
-                    delay: 1000,
-                    toValue: 1,
-                    duration: 2000,
-                    useNativeDriver: true
-                }
-            ).start();
-        }, [fadeAnim])
+            if (isFocused) {
+                console.log("penis");
+                Animated.timing(
+                    fadeAnim,
+                    {
+                        delay: 1000,
+                        toValue: 1,
+                        duration: 2000,
+                        useNativeDriver: true
+                    }
+                ).start();
+            }
+        }, [isFocused]);
       
         return (
             <Animated.View                 // Special animatable View
@@ -30,7 +37,7 @@ const HomeScreen = props => {
     }
 
     function handleStart() {
-        // find a way to reset the animation
+        fadeAnim.setValue(0);
         props.navigation.navigate('Weekly Availability');
     }
 
