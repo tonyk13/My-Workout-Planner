@@ -1,46 +1,60 @@
 import React from 'react';
-import {StyleSheet, View, Text, FlatList} from 'react-native';
-import {useDispatch, useSelector} from "react-redux";
-import * as topicActions from '../store/actions/topicActions';
-import topics from "../data/dummy/topics";
-import Counter from "react-native-counters";
+import { StyleSheet, View, Text, Pressable } from 'react-native';
+import { useState } from 'react';
 
 const WeeklyAvailability = props => {
-    const dispatch = useDispatch();
+    const [days, setDays] = useState(3);
+    let showDays = false;
 
-    const availableTopics = topics;
-    const userTopics = useSelector(state => state.topics);
-
-    const topicList = availableTopics.map(availableTopic => {
-        return {
-            model: availableTopic,
-            isLearning: userTopics.filter((userTopic) => {
-                return userTopic.id === availableTopic.id;
-            }).length > 0
-        };
-    });
-
-    const handleOnSelect = (topicId) => {
-        dispatch(topicActions.addTopic(topicId));
-    }
-
-    const handleOnRemove = (topicId) => {
-        dispatch(topicActions.removeTopic(topicId));
-    }
-
-    function onChange(number, type) {
-        console.log(number, type); // 1, + or -
+    if (days >= 3 && days <= 7) {
+        showDays = true;
     }
 
     return (
-        <View style={styles.container}>
-            <View style={styles.availableTopics}>
+        <View style={styles.container} flexDirection="column">
+            <View style={styles.howManyDays}>
                 <Text style={styles.title}>How many days per week?</Text>
-                <Counter 
-                    max={6} 
-                    min={3} 
-                    start={3} 
-                    onChange={onChange.bind(this)} />
+            </View>
+
+            <View flexDirection="row">
+                <View>
+                    <Pressable 
+                        style={styles.plusMinusButtons}
+                        onPress={() => {
+                            setDays((current) => current - 1);
+                        }}
+                        android_ripple={{color: 'white', borderless: false, borderRadius: 12}}
+                        disabled={days == 3}
+                        >
+                        <Text style={{fontSize: 48, color: 'white'}}>-</Text>
+                    </Pressable>
+                </View>
+                <View padding={25}>
+                    <Text style={{fontSize: 40}}>
+                        {days}
+                    </Text>
+                </View>
+                <View>
+                    <Pressable 
+                        style={styles.plusMinusButtons}
+                        onPress={() => {
+                            setDays((current) => current + 1);
+                        }}
+                        android_ripple={{color: 'white', borderless: false, borderRadius: 12}}
+                        disabled={days == 7}>
+                        <Text style={{fontSize: 48, color: 'white'}}>+</Text>
+                    </Pressable>
+                </View>
+            </View>
+            <View>
+                {showDays && <Pressable 
+                    style={{backgroundColor: 'black', padding: 20, borderRadius: 12, width: 120}}
+                    android_ripple={{color: 'white', borderless: false, borderRadius: 12}}
+                    >
+                    <Text style={{fontSize: 20, color: 'white', textAlign: 'center'}}>
+                        NEXT
+                    </Text>
+                </Pressable>}
             </View>
         </View>
     );
@@ -52,14 +66,29 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
+        padding: 20,
+        paddingTop: 100,
+        paddingBottom: 250
     },
-    availableTopics: {
+    howManyDays: {
         flex: 1,
-        margin: 20
+        margin: 20,
+        flexDirection: 'row'
     },
     title: {
-        fontSize: 18,
-        paddingVertical: 10
+        fontSize: 24,
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: -2
+    },
+    plusMinusButtons: {
+        backgroundColor: 'black',
+        justifyContent: "center",
+        elevation: 3,
+        padding: 10,
+        flexDirection: "row",
+        width: 80,
+        borderRadius: 12,
     }
 });
 

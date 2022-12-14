@@ -1,21 +1,19 @@
 import React, { useRef, useEffect } from 'react';
-import { Animated, Pressable, StyleSheet, Text, SafeAreaView } from 'react-native';
+import { Animated, Pressable, StyleSheet, Text, SafeAreaView, View } from 'react-native';
 import { useIsFocused } from "@react-navigation/native";
 
 const HomeScreen = props => {
     const fadeAnim = useRef(new Animated.Value(0)).current;  // Initial value for opacity: 0
-    console.log("faded");
 
     const FadeInView = (props) => {
         const isFocused = useIsFocused();
 
         useEffect(() => {
             if (isFocused) {
-                console.log("penis");
                 Animated.timing(
                     fadeAnim,
                     {
-                        delay: 1000,
+                        delay: 250,
                         toValue: 1,
                         duration: 2000,
                         useNativeDriver: true
@@ -48,17 +46,23 @@ const HomeScreen = props => {
                 <Text style={{fontSize: 24, textAlign: 'center', margin: 10}}>WHAT'S STOPPING YOU?</Text>
             </FadeInView>
 
+            <View padding={40}>
+
+            </View>
+
             <Pressable 
                 style={styles.button} 
-                onPress={handleStart}>
+                onPress={handleStart}
+                android_ripple={{color: 'white', borderless: false, borderRadius: 12}}
+                >
                 <Text 
                     style={styles.text}>
                     {"START"}
                 </Text>
             </Pressable>
 
-            <Text style={shaboy.container}>
-                BROUGHT TO YOU BY VESUVI
+            <Text style={styles.vesuvi}>
+                VESUVI
             </Text>
         </SafeAreaView>
     )
@@ -78,19 +82,23 @@ const styles = StyleSheet.create({
     button: {
         alignItems: 'center',
         justifyContent: 'center',
-        paddingVertical: 12,
-        paddingHorizontal: 32,
-        borderRadius: 4,
+        paddingVertical: 20,
+        paddingHorizontal: 40,
+        borderRadius: 12,
         elevation: 3,
         backgroundColor: 'black',
     },
     text: {
-        fontSize: 16,
-        lineHeight: 21,
+        fontSize: 20,
+        lineHeight: 25,
         fontWeight: 'bold',
         letterSpacing: 0.25,
         color: 'white',
     },
+    vesuvi: {
+        fontSize: 16,
+        paddingTop: 120
+    }
 });
 
 const shaboy = StyleSheet.create({
