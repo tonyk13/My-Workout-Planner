@@ -6,6 +6,7 @@ import {Provider} from 'react-redux'
 import {createStore} from 'redux';
 import topicReducer from "./store/reducers/topicReducer";
 import WeeklyAvailability from './screens/WeeklyAvailability';
+import ChooseDays from './screens/ChooseDays';
 
 export default function App() {
     const Stack = createStackNavigator();
@@ -18,6 +19,7 @@ export default function App() {
                 <Stack.Navigator initialRouteName="Home">
                     <Stack.Screen name="My Workout Planner" component={HomeScreen}/>
                     <Stack.Screen name="Weekly Availability" component={WeeklyAvailability}/>
+                    <Stack.Screen name="Choose Days" component={ChooseDays}/>
                 </Stack.Navigator>
             </NavigationContainer>
         </Provider>
