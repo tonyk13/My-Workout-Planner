@@ -60,7 +60,7 @@ const WeeklyAvailability = props => {
 
             <View>
                 {showDays && <Pressable 
-                    style={{backgroundColor: 'black', padding: 20, borderRadius: 12, width: 120}}
+                    style={{backgroundColor: 'green', padding: 20, borderRadius: 12, width: 120}}
                     android_ripple={{color: 'white', borderless: false, borderRadius: 12}}
                     onPress={handleNext}
                     >

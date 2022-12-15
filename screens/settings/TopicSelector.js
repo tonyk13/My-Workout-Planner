@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 
 const TopicSelector = props => {
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>
@@ -22,7 +23,7 @@ const TopicSelector = props => {
                         props.onSelect()
                     }}
                 >
-                    <Text style={styles.addTopicText}>+ Add topic</Text>
+                    <Text style={styles.addTopicText}></Text>
                 </TouchableOpacity>
             }
         </View>
