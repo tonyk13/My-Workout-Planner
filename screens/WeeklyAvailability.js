@@ -6,6 +6,23 @@ const WeeklyAvailability = props => {
     const [days, setDays] = useState(3);
     let showDays = false;
 
+    if (days == 3) {
+        global.routine = "FULL BODY";
+        console.log(global.routine);
+    }
+    if (days == 4) {
+        global.routine = "UPPER LOWER";
+        console.log(global.routine);
+    }
+    if (days == 5) {
+        global.routine = "5 DAY PUSH PULL LEGS";
+        console.log(global.routine);
+    }
+    if (days == 6) {
+        global.routine = "6 DAY PUSH PULL LEGS";
+        console.log(global.routine);
+    }
+
     if (days >= 3 && days <= 7) {
         showDays = true;
     }
@@ -59,8 +76,7 @@ const WeeklyAvailability = props => {
             </View>
 
             <View>
-                {showDays && <Pressable 
-                    style={{backgroundColor: 'green', padding: 20, borderRadius: 12, width: 120}}
+                {showDays && <Pressable style={styles.nextButton}
                     android_ripple={{color: 'white', borderless: false, borderRadius: 12}}
                     onPress={handleNext}
                     >
@@ -102,6 +118,13 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         width: 80,
         borderRadius: 12,
+    },
+    nextButton: {
+        elevation: 3,
+        backgroundColor: 'green', 
+        padding: 20, 
+        borderRadius: 12, 
+        width: 120
     }
 });
 
