@@ -5,6 +5,7 @@ import { useState } from 'react';
 const WeeklyAvailability = props => {
     const [days, setDays] = useState(3);
     let showDays = false;
+    global.routine = "";
 
     if (days == 3) {
         global.routine = "FULL BODY";
