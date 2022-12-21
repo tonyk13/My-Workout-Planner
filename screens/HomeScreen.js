@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 40,
         borderRadius: 12,
         elevation: 3,
-        backgroundColor: 'green',
+        backgroundColor: '#53a2ed',
     },
     text: {
         fontSize: 20,
@@ -102,11 +102,5 @@ const styles = StyleSheet.create({
         paddingTop: 120
     }
 });
-
-const shaboy = StyleSheet.create({
-    container: {
-        paddingTop: 150,
-    }
-})
 
 export default HomeScreen;
