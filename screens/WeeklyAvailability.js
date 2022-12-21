@@ -6,6 +6,7 @@ const WeeklyAvailability = props => {
     const [days, setDays] = useState(3);
     let showDays = false;
     global.routine = "";
+    global.days.length = 0;
 
     if (days == 3) {
         global.routine = "FULL BODY";

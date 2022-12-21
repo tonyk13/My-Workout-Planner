@@ -5,11 +5,7 @@ global.days = [];
 let maxDays = 0;
 
 const ChooseDays = props => {
-    // once a button is selected, pressing it again should unselect it
-    // find a way to disable remaining day buttons when days.length == maxDays
-    // find a day to change day button color after being pressed
     // disable "NEXT" button until days.length == maxDays
-    // when "RESET" button is pressed unselect all day buttons
 
     // 0 = not selected or disabled yet
     // 1 = selected

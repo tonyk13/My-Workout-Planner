@@ -3,6 +3,8 @@ import { Animated, Pressable, StyleSheet, Text, SafeAreaView, View } from 'react
 import { useIsFocused } from "@react-navigation/native";
 
 const HomeScreen = props => {
+    global.routine = "";
+
     const fadeAnim = useRef(new Animated.Value(0)).current;  // Initial value for opacity: 0
 
     const FadeInView = (props) => {
