@@ -87,8 +87,9 @@ const styles = StyleSheet.create({
         paddingVertical: 20,
         paddingHorizontal: 40,
         borderRadius: 12,
-        elevation: 3,
-        backgroundColor: '#53a2ed',
+        elevation: 10,
+        shadowColor: '#90EE90',
+        backgroundColor: '#90EE90',
     },
     text: {
         fontSize: 20,

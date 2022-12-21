@@ -41,6 +41,7 @@ const ChooseDays = props => {
                 setSundayState(1);
                 
                 if (global.routine == "FULL BODY") {
+                    setSaturdayState(2);
                     setMondayState(2);
                 }
             } 
@@ -54,6 +55,7 @@ const ChooseDays = props => {
                 setMondayState(1);
     
                 if (global.routine == "FULL BODY") {
+                    setSundayState(2);
                     setTuesdayState(2);
                 }
             } 
@@ -67,6 +69,7 @@ const ChooseDays = props => {
                 setTuesdayState(1);
     
                 if (global.routine == "FULL BODY") {
+                    setMondayState(2);
                     setWednesdayState(2);
                 }
             } 
@@ -80,6 +83,7 @@ const ChooseDays = props => {
                 setWednesdayState(1);
     
                 if (global.routine == "FULL BODY") {
+                    setTuesdayState(2);
                     setThursdayState(2);
                 }
             } 
@@ -93,6 +97,7 @@ const ChooseDays = props => {
                 setThursdayState(1);
     
                 if (global.routine == "FULL BODY") {
+                    setWednesdayState(2);
                     setFridayState(2);
                 }
             } 
@@ -106,6 +111,7 @@ const ChooseDays = props => {
                 setFridayState(1);
 
                 if (global.routine == "FULL BODY") {
+                    setThursdayState(2);
                     setSaturdayState(2);
                 }
             } 
@@ -119,6 +125,7 @@ const ChooseDays = props => {
                 setSaturdayState(1);
 
                 if (global.routine == "FULL BODY") {
+                    setFridayState(2);
                     setSundayState(2);
                 }
             } 
@@ -160,7 +167,7 @@ const ChooseDays = props => {
             </Text>
 
             <Pressable
-                style={[styles.dayButton, { backgroundColor: (sundayState > 0) ? (sundayState > 1) ? 'gray' : '#53a2ed' : 'white' }]}
+                style={[styles.dayButton, { backgroundColor: (sundayState > 0) ? (sundayState > 1) ? 'gray' : '#90EE90' : 'white' }]}
                 android_ripple={{color: 'white', borderless: false, borderRadius: 12}}
                 onPress={addSunday}
                 disabled={sundayState == 2}
@@ -173,7 +180,7 @@ const ChooseDays = props => {
 
             </View>
             <Pressable 
-                style={[styles.dayButton, { backgroundColor: (mondayState > 0) ? (mondayState > 1) ? 'gray' : '#53a2ed' : 'white' }]}
+                style={[styles.dayButton, { backgroundColor: (mondayState > 0) ? (mondayState > 1) ? 'gray' : '#90EE90' : 'white' }]}
                 android_ripple={{color: 'white', borderless: false, borderRadius: 12}}
                 onPress={addMonday}
                 disabled={mondayState == 2}
@@ -186,7 +193,7 @@ const ChooseDays = props => {
 
             </View>
             <Pressable 
-                style={[styles.dayButton, { backgroundColor: (tuesdayState > 0) ? (tuesdayState > 1) ? 'gray' : '#53a2ed' : 'white' }]}
+                style={[styles.dayButton, { backgroundColor: (tuesdayState > 0) ? (tuesdayState > 1) ? 'gray' : '#90EE90' : 'white' }]}
                 android_ripple={{color: 'white', borderless: false, borderRadius: 12}}
                 onPress={addTuesday}
                 disabled={tuesdayState == 2}
@@ -199,7 +206,7 @@ const ChooseDays = props => {
 
             </View>
             <Pressable 
-                style={[styles.dayButton, { backgroundColor: (wednesdayState > 0) ? (wednesdayState > 1) ? 'gray' : '#53a2ed' : 'white' }]}
+                style={[styles.dayButton, { backgroundColor: (wednesdayState > 0) ? (wednesdayState > 1) ? 'gray' : '#90EE90' : 'white' }]}
                 android_ripple={{color: 'white', borderless: false, borderRadius: 12}}
                 onPress={addWednesday}
                 disabled={wednesdayState == 2}
@@ -212,7 +219,7 @@ const ChooseDays = props => {
 
             </View>
             <Pressable 
-                style={[styles.dayButton, { backgroundColor: (thursdayState > 0) ? (thursdayState > 1) ? 'gray' : '#53a2ed' : 'white' }]}
+                style={[styles.dayButton, { backgroundColor: (thursdayState > 0) ? (thursdayState > 1) ? 'gray' : '#90EE90' : 'white' }]}
                 android_ripple={{color: 'white', borderless: false, borderRadius: 12}}
                 onPress={addThursday}
                 disabled={thursdayState == 2}                
@@ -225,7 +232,7 @@ const ChooseDays = props => {
 
             </View>
             <Pressable 
-                style={[styles.dayButton, { backgroundColor: (fridayState > 0) ? (fridayState > 1) ? 'gray' : '#53a2ed' : 'white' }]}
+                style={[styles.dayButton, { backgroundColor: (fridayState > 0) ? (fridayState > 1) ? 'gray' : '#90EE90' : 'white' }]}
                 android_ripple={{color: 'white', borderless: false, borderRadius: 12}}
                 onPress={addFriday}
                 disabled={fridayState == 2}                
@@ -238,7 +245,7 @@ const ChooseDays = props => {
 
             </View>
             <Pressable 
-                style={[styles.dayButton, { backgroundColor: (saturdayState > 0) ? (saturdayState > 1) ? 'gray' : '#53a2ed' : 'white' }]}
+                style={[styles.dayButton, { backgroundColor: (saturdayState > 0) ? (saturdayState > 1) ? 'gray' : '#90EE90' : 'white' }]}
                 android_ripple={{color: 'white', borderless: false, borderRadius: 12}}
                 onPress={addSaturday}
                 disabled={saturdayState == 2}                
@@ -303,18 +310,20 @@ const styles = StyleSheet.create({
         elevation: 8
     },
     resetButton: {
-        backgroundColor: '#ce2544',
+        backgroundColor: 'red',
+        shadowColor: 'red',
         padding: 20,
         borderRadius: 12,
         width: 120,
-        elevation: 3
+        elevation: 10
     },
     nextButton: {
-        backgroundColor: 'green',
+        backgroundColor: '#53a2ed',
+        shadowColor: '#53a2ed',
         padding: 20,
         borderRadius: 12,
         width: 120,
-        elevation: 3
+        elevation: 10
     }
 });
 

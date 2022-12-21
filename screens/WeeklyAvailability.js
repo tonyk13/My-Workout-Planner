@@ -42,7 +42,7 @@ const WeeklyAvailability = props => {
             <View flexDirection="row">
                 <View>
                     <Pressable 
-                        style={styles.plusMinusButtons}
+                        style={styles.minusButton}
                         onPress={() => {
                             setDays((current) => current - 1);
                         }}
@@ -59,7 +59,7 @@ const WeeklyAvailability = props => {
                 </View>
                 <View>
                     <Pressable 
-                        style={styles.plusMinusButtons}
+                        style={styles.plusButton}
                         onPress={() => {
                             setDays((current) => current + 1);
                         }}
@@ -112,18 +112,30 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         margin: -2
     },
-    plusMinusButtons: {
-        backgroundColor: '#53a2ed',
+    plusButton: {
+        backgroundColor: '#90EE90',
+        shadowColor: '#90EE90',
         justifyContent: "center",
-        elevation: 3,
+        elevation: 10,
+        padding: 10,
+        flexDirection: "row",
+        width: 80,
+        borderRadius: 12,
+    },
+    minusButton: {
+        backgroundColor: 'red',
+        shadowColor: 'red',
+        justifyContent: "center",
+        elevation: 10,
         padding: 10,
         flexDirection: "row",
         width: 80,
         borderRadius: 12,
     },
     nextButton: {
-        elevation: 3,
-        backgroundColor: 'green', 
+        elevation: 10,
+        backgroundColor: '#53a2ed', 
+        shadowColor: '#53a2ed',
         padding: 20, 
         borderRadius: 12, 
         width: 120
